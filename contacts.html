@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Контакты - Манта Фридайвинг</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="nav__link" href="breathing.html">ОБУЧЕНИЕ ФРИДАЙВИНГУ</a>
+      <a class="nav__link" href="breathing-practices.html">ОБУЧЕНИЕ ДЫХАНИЮ</a>
+      <a class="nav__link" href="events.html">СОБЫТИЯ</a>
+      <a class="nav__link" href="about.html">О НАС</a>
+      <a class="nav__link" href="contacts.html">КОНТАКТЫ</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="contacts-hero">
+      <div class="contacts-hero__media"></div>
+      <!-- Бургер-меню для мобильных внутри hero -->
+      <div class="burger-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="contacts-hero__content">
+        <h1 class="contacts-hero__title">КОНТАКТЫ</h1>
+      </div>
+    </section>
+
+    <!-- Блок с контактами - Десктопная версия -->
+    <section class="contacts-info contacts-info--desktop">
+      <div class="contacts-info__container">
+        <div class="contacts-info__row">
+          <div class="contacts-info__item">
+            <span class="contacts-info__phone">8-961-764-13-27</span>
+          </div>
+          <div class="contacts-info__actions">
+            <a href="#" class="contacts-info__btn contacts-info__btn--primary">ЗАКАЗАТЬ ЗВОНОК</a>
+            <a href="#" class="contacts-info__btn contacts-info__btn--social">
+              <img src="./img/telegram.png" alt="Telegram" class="contacts-info__icon">
+            </a>
+            <a href="#" class="contacts-info__btn contacts-info__btn--social">
+              <img src="./img/vk.png" alt="VK" class="contacts-info__icon">
+            </a>
+          </div>
+        </div>
+        <div class="contacts-info__row">
+          <div class="contacts-info__item">
+            <span class="contacts-info__email">talyafree@gmail.com</span>
+          </div>
+          <div class="contacts-info__actions">
+            <a href="#" class="contacts-info__btn contacts-info__btn--primary">ЗАДАТЬ ВОПРОС</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Блок с контактами - Мобильная версия -->
+    <section class="contacts-info contacts-info--mobile">
+      <div class="contacts-info__container">
+        <div class="contacts-info__item">
+          <span class="contacts-info__phone">8-961-764-13-27</span>
+        </div>
+        <div class="contacts-info__item">
+          <span class="contacts-info__email">talyafree@gmail.com</span>
+        </div>
+        <a href="#" class="contacts-info__btn contacts-info__btn--primary">ЗАКАЗАТЬ ЗВОНОК</a>
+        <a href="#" class="contacts-info__btn contacts-info__btn--primary">ЗАДАТЬ ВОПРОС</a>
+        <div class="contacts-info__socials">
+          <a href="#" class="contacts-info__btn contacts-info__btn--social">
+            <img src="./img/telegram.png" alt="Telegram" class="contacts-info__icon">
+          </a>
+          <a href="#" class="contacts-info__btn contacts-info__btn--social">
+            <img src="./img/vk.png" alt="VK" class="contacts-info__icon">
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Блок с расписанием -->
+    <section class="contacts-schedule">
+      <div class="contacts-schedule__container">
+        <h2 class="contacts-schedule__title">РАСПИСАНИЕ</h2>
+        <div class="contacts-schedule__outer-form">
+          <div class="contacts-schedule__block">
+          <ul class="contacts-schedule__list">
+            <li class="contacts-schedule__item contacts-schedule__item--active" data-schedule="1">
+              <input type="radio" name="schedule" value="1" id="schedule-1" class="contacts-schedule__radio" checked>
+              <label for="schedule-1" class="contacts-schedule__label">
+                Вт 20:00 (время Екатеринбург) -21:00 тренировка в бассейне 25м Адрес: Черепанова 25
+              </label>
+            </li>
+            <li class="contacts-schedule__item" data-schedule="2">
+              <input type="radio" name="schedule" value="2" id="schedule-2" class="contacts-schedule__radio">
+              <label for="schedule-2" class="contacts-schedule__label">
+                Чт 13:45 (Время Екатеринбург) - 14:45 статика в теплом бассейне Адрес: Готвальда 6/4
+              </label>
+            </li>
+            <li class="contacts-schedule__item" data-schedule="3">
+              <input type="radio" name="schedule" value="3" id="schedule-3" class="contacts-schedule__radio">
+              <label for="schedule-3" class="contacts-schedule__label">
+                Пт 8:00-9:00 (время Москва) - онлайн тренировка по дыханию для фридайверов и не только
+              </label>
+            </li>
+            <li class="contacts-schedule__item" data-schedule="4">
+              <input type="radio" name="schedule" value="4" id="schedule-4" class="contacts-schedule__radio">
+              <label for="schedule-4" class="contacts-schedule__label">
+                Сб 12 30-14:00 (время Екатеринбург) тренировка в бассейне 50м Адрес: г.Заречный, Клары Цеткин
+              </label>
+            </li>
+            <li class="contacts-schedule__item" data-schedule="5">
+              <input type="radio" name="schedule" value="5" id="schedule-5" class="contacts-schedule__radio">
+              <label for="schedule-5" class="contacts-schedule__label">
+                18 и 19 октября - мастер класс по задержкам дыхания в центре Джей Ганеша <a href="https://www.hanuman-yoga.ru/breath2025" class="contacts-schedule__link">https://www.hanuman-yoga.ru/breath2025</a> запись
+              </label>
+            </li>
+            <li class="contacts-schedule__item" data-schedule="6">
+              <input type="radio" name="schedule" value="6" id="schedule-6" class="contacts-schedule__radio">
+              <label for="schedule-6" class="contacts-schedule__label">
+                25 и 26 октября, 1 и 2 ноября базовый курс по фридайвингу Адрес: (Екатеринбург, Заречный)
+              </label>
+            </li>
+          </ul>
+          </div>
+          <a href="#" class="contacts-schedule__btn">ЗАПИСАТЬСЯ</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Блок с друзьями -->
+    <section class="contacts-friends">
+      <div class="contacts-friends__container">
+        <h2 class="contacts-friends__title">ДРУЗЬЯ</h2>
+        <ul class="contacts-friends__list">
+          <li class="contacts-friends__item">Федерация Фридайвинга</li>
+          <li class="contacts-friends__item">Центр йоги Хануман</li>
+          <li class="contacts-friends__item">
+            <strong>Фотографы</strong> Ксения Алфеева, Татьяна Джемилева, Александр Акивис и Даниил Колодин. Их фотографии вы видите на сайте.
+          </li>
+          <li class="contacts-friends__item">
+            <strong>Магазин Wateria</strong> оборудование для фридайвинга, промокод со скидкой MANTAFREE
+          </li>
+          <li class="contacts-friends__item">
+            <strong>Клуб Ama</strong> наши друзья и коллеги из Питера
+          </li>
+          <li class="contacts-friends__item">
+            <strong>Aquateam</strong> пошив классных гидрокостюмов. Скажите что вы от Наталии Чернобородовой, и для вас сделают скидку
+          </li>
+          <li class="contacts-friends__item">
+            <strong>Apnea gear</strong> нижегородские друзья, которые продают всякие нужные штуки для фридайвинга, скажите что вы от Наталии Чернобородовой, и для вас сделают скидку
+          </li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Мобильное меню -->
+  <div id="mobileMenu" class="mobile-menu">
+    <div class="mobile-menu__overlay"></div>
+    <div class="mobile-menu__content">
+      <nav class="mobile-menu__nav">
+        <a href="breathing.html" class="mobile-menu__link">ОБУЧЕНИЕ ФРИДАЙВИНГУ</a>
+        <a href="breathing-practices.html" class="mobile-menu__link">ОБУЧЕНИЕ ДЫХАНИЮ</a>
+        <a href="events.html" class="mobile-menu__link">СОБЫТИЯ</a>
+        <a href="about.html" class="mobile-menu__link">О НАС</a>
+        <a href="contacts.html" class="mobile-menu__link">КОНТАКТЫ</a>
+      </nav>
+      <div class="mobile-menu__contact">
+        talyafree@gmail.com
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer__content">
+      <nav class="footer__nav">
+        <a href="#" class="footer__link">ОБУЧЕНИЕ ДЫХАНИЮ</a>
+        <a href="#" class="footer__link">ОБУЧЕНИЕ ФРИДАЙВИНГУ</a>
+        <a href="#" class="footer__link">СОБЫТИЯ</a>
+        <a href="#" class="footer__link">О НАС</a>
+        <a href="#" class="footer__link">КОНТАКТЫ</a>
+      </nav>
+      
+      <div class="footer__contacts-wrapper">
+        <div class="footer__contacts">
+          <span class="footer__phone">8-961-764-13-27</span>
+          <span class="footer__email">talyafree@gmail.com</span>
+        </div>
+      </div>
+      
+      <div class="footer__contacts-wrapper">
+        <div class="footer__social">
+          <a href="#" class="footer__social-link">
+            <img src="./img/telegram.png" alt="Telegram" width="20" height="20">
+          </a>
+          <a href="#" class="footer__social-link">
+            <img src="./img/vk.png" alt="VK" width="20" height="20">
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Мобильное меню
+      const burgerMenu = document.querySelector('.burger-menu');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const mobileMenuOverlay = document.querySelector('.mobile-menu__overlay');
+      
+      function closeMobileMenu() {
+        mobileMenu.classList.remove('active');
+      }
+      
+      function toggleMobileMenu() {
+        if (mobileMenu.classList.contains('active')) {
+          closeMobileMenu();
+        } else {
+          mobileMenu.classList.add('active');
+        }
+      }
+      
+      if (burgerMenu) {
+        burgerMenu.addEventListener('click', toggleMobileMenu);
+      }
+      
+      if (mobileMenuOverlay) {
+        mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+      }
+      
+      // Закрытие меню при клике на ссылку
+      const mobileMenuLinks = document.querySelectorAll('.mobile-menu__link');
+      mobileMenuLinks.forEach(link => {
+        link.addEventListener('click', closeMobileMenu);
+      });
+
+      // Schedule radio buttons functionality
+      const scheduleItems = document.querySelectorAll('.contacts-schedule__item');
+      const scheduleRadios = document.querySelectorAll('.contacts-schedule__radio');
+
+      scheduleItems.forEach(item => {
+        item.addEventListener('click', function() {
+          const radio = this.querySelector('.contacts-schedule__radio');
+          if (radio) {
+            radio.checked = true;
+            updateScheduleItems();
+          }
+        });
+      });
+
+      scheduleRadios.forEach(radio => {
+        radio.addEventListener('change', updateScheduleItems);
+      });
+
+      function updateScheduleItems() {
+        scheduleItems.forEach(item => {
+          const radio = item.querySelector('.contacts-schedule__radio');
+          if (radio && radio.checked) {
+            item.classList.add('contacts-schedule__item--active');
+          } else {
+            item.classList.remove('contacts-schedule__item--active');
+          }
+        });
+      }
+
+      // Initialize
+      updateScheduleItems();
+    });
+  </script>
+</body>
+</html>
