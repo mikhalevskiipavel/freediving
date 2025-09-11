@@ -351,10 +351,24 @@
               <span class="enrollment-modal__option-text">Курсы в бассейне (Екатеринбург)</span>
             </label>
             <label class="enrollment-modal__option">
-              <input type="radio" name="course" value="pool-advanced" class="enrollment-modal__radio">
+              <input type="radio" name="course" value="pool-advanced" class="enrollment-modal__radio" data-submenu="depth-courses" id="depth-courses-main">
               <span class="enrollment-modal__radio-custom"></span>
               <span class="enrollment-modal__option-text">Курсы на глубине (Екатеринбург)</span>
             </label>
+            <div class="enrollment-modal__submenu" id="depth-courses">
+              <div class="enrollment-modal__suboption" data-value="depth-basic">
+                <span class="enrollment-modal__radio-custom"></span>
+                <span class="enrollment-modal__option-text">БАЗОВЫЙ КУРС (1 ВОЛНА) 22000р.</span>
+              </div>
+              <div class="enrollment-modal__suboption" data-value="depth-advanced">
+                <span class="enrollment-modal__radio-custom"></span>
+                <span class="enrollment-modal__option-text">ПРОДВИНУТЫЙ КУРС (2 ВОЛНА) 30000р.</span>
+              </div>
+              <div class="enrollment-modal__suboption" data-value="depth-super-advanced">
+                <span class="enrollment-modal__radio-custom"></span>
+                <span class="enrollment-modal__option-text">ЕЩЕ БОЛЕЕ ПРОДВИНУТЫЙ КУРС (З ВОЛНА) 30000р.</span>
+              </div>
+            </div>
             <label class="enrollment-modal__option">
               <input type="radio" name="course" value="regular-training" class="enrollment-modal__radio">
               <span class="enrollment-modal__radio-custom"></span>
@@ -470,6 +484,79 @@
         if (e.key === 'Escape' && enrollmentModal.classList.contains('active')) {
           closeEnrollmentModal();
         }
+      });
+      
+      // Управление подменю
+      const submenuRadios = document.querySelectorAll('.enrollment-modal__radio[data-submenu]');
+      submenuRadios.forEach(radio => {
+        radio.addEventListener('change', function() {
+          const submenuId = this.getAttribute('data-submenu');
+          const submenu = document.getElementById(submenuId);
+          
+          // Скрыть все подменю
+          document.querySelectorAll('.enrollment-modal__submenu').forEach(menu => {
+            menu.classList.remove('active');
+          });
+          
+          // Сбросить выбор в подменю
+          document.querySelectorAll('.enrollment-modal__suboption').forEach(subOption => {
+            subOption.classList.remove('selected');
+          });
+          
+          // Показать выбранное подменю
+          if (submenu && this.checked) {
+            submenu.classList.add('active');
+          }
+        });
+      });
+      
+      // Сброс подменю при выборе других основных опций
+      const mainOptions = document.querySelectorAll('.enrollment-modal__options .enrollment-modal__radio:not([data-submenu])');
+      mainOptions.forEach(radio => {
+        radio.addEventListener('change', function() {
+          if (this.checked) {
+            // Скрыть все подменю
+            document.querySelectorAll('.enrollment-modal__submenu').forEach(menu => {
+              menu.classList.remove('active');
+            });
+            
+            // Сбросить выбор в подменю
+            document.querySelectorAll('.enrollment-modal__suboption').forEach(subOption => {
+              subOption.classList.remove('selected');
+            });
+          }
+        });
+      });
+      
+      // Выбор подпунктов
+      const submenuOptions = document.querySelectorAll('.enrollment-modal__suboption');
+      submenuOptions.forEach(option => {
+        option.addEventListener('click', function() {
+          // Сбросить выбор других подпунктов
+          document.querySelectorAll('.enrollment-modal__suboption').forEach(subOption => {
+            subOption.classList.remove('selected');
+          });
+          
+          // Выбрать текущий подпункт
+          this.classList.add('selected');
+          
+          // Сбросить выбор других основных опций
+          document.querySelectorAll('.enrollment-modal__options .enrollment-modal__radio:not([data-submenu])').forEach(mainRadio => {
+            mainRadio.checked = false;
+          });
+          
+          // Убедиться, что родительская опция выбрана
+          const parentRadio = document.getElementById('depth-courses-main');
+          if (parentRadio) {
+            parentRadio.checked = true;
+          }
+          
+          // Оставить подменю открытым
+          const submenu = this.closest('.enrollment-modal__submenu');
+          if (submenu) {
+            submenu.classList.add('active');
+          }
+        });
       });
     });
   </script>
