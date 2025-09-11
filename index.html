@@ -372,8 +372,6 @@
       
       // Модальное окно для отзывов
       const modal = document.getElementById('reviewModal');
-      const modalClose = document.querySelector('.modal__close');
-      const modalOverlay = document.querySelector('.modal__overlay');
       const modalFirstName = document.querySelector('.modal__first-name');
       const modalLastName = document.querySelector('.modal__last-name');
       const modalText = document.querySelector('.modal__text');
@@ -389,6 +387,7 @@
       document.addEventListener('click', function(e) {
         if (e.target.classList.contains('review__link')) {
           e.preventDefault();
+          e.stopPropagation(); // Останавливаем всплытие события
           console.log('Клик по ссылке обработан');
           
           const reviewCard = e.target.closest('.review');
@@ -404,7 +403,20 @@
           modalLastName.textContent = lastName;
           modalText.textContent = fullReviews[name] || 'Полный текст отзыва недоступен.';
           
+          // Позиционируем модальное окно относительно секции отзывов
+          const reviewsSection = document.querySelector('.reviews');
+          const reviewsRect = reviewsSection.getBoundingClientRect();
+          const modalContent = document.querySelector('.modal__content');
+          
+          // Устанавливаем позицию модального окна
+          modal.style.top = reviewsRect.top + 'px';
+          modal.style.left = reviewsRect.left + 'px';
+          modal.style.width = reviewsRect.width + 'px';
+          modal.style.height = reviewsRect.height + 'px';
+          
           modal.classList.add('active');
+          // Блокируем скролл страницы
+          document.body.classList.add('modal-open');
           console.log('Модальное окно должно открыться');
         }
       });
@@ -412,20 +424,37 @@
       // Закрытие модального окна
       function closeModal() {
         modal.classList.remove('active');
+        // Разблокируем скролл страницы
+        document.body.classList.remove('modal-open');
       }
       
-      if (modalClose) {
-        modalClose.addEventListener('click', closeModal);
-      }
-      
-      if (modalOverlay) {
-        modalOverlay.addEventListener('click', closeModal);
-      }
+      // Закрытие при клике на любую часть экрана кроме отзыва
+      document.addEventListener('click', function(e) {
+        if (modal.classList.contains('active')) {
+          // Проверяем, что клик не по самому модальному окну и не по кнопке "читать полностью"
+          if (!e.target.closest('.modal__content') && !e.target.classList.contains('review__link')) {
+            closeModal();
+          }
+        }
+      });
       
       // Закрытие по Escape
       document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && modal.classList.contains('active')) {
           closeModal();
+        }
+      });
+      
+      // Перепозиционирование при изменении размера окна
+      window.addEventListener('resize', function() {
+        if (modal.classList.contains('active')) {
+          const reviewsSection = document.querySelector('.reviews');
+          const reviewsRect = reviewsSection.getBoundingClientRect();
+          
+          modal.style.top = reviewsRect.top + 'px';
+          modal.style.left = reviewsRect.left + 'px';
+          modal.style.width = reviewsRect.width + 'px';
+          modal.style.height = reviewsRect.height + 'px';
         }
       });
       
